@@ -2,6 +2,8 @@ import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Too
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
+import './NavBar.css'
+
 
 const pages = ['home', 'Pricing', 'about'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -43,7 +45,7 @@ const Navbar = () => {
         //     </NavLink>
         //     <NavLink to='/home'>home</NavLink>
         //     <NavLink to='/login'>login</NavLink> */}
-            <AppBar position="static">
+            <AppBar color='primary' position="static">
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         <Typography
@@ -52,7 +54,7 @@ const Navbar = () => {
                             component="div"
                             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                         >
-                            LOGO
+                            Health Haven Hospital
                         </Typography>
 
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -86,7 +88,8 @@ const Navbar = () => {
                             >
                                 {pages.map((page) => (
                                     <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                        <Typography textAlign="center">{page}</Typography>
+                                        <Link to={page}
+                                            className="text-style">{page}</Link>
                                     </MenuItem>
                                 ))}
                             </Menu>
@@ -97,17 +100,20 @@ const Navbar = () => {
                             component="div"
                             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                         >
-                            LOGOa
+                            Health Haven Hospital
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                             {pages.map((page) => (
-                                <Button
+                                <Link
                                     key={page}
-                                    onClick={handleCloseNavMenu}
-                                    sx={{ my: 2, color: 'white', display: 'block' }}
-                                > <NavLink to={page}>{page}</NavLink>
+                                    className="text-style text-style-fullscrn "
+                                    to={page}>
+                                    <Button
+                                        onClick={handleCloseNavMenu}
+                                        sx={{ my: 2, color: 'white', display: 'block' }}
+                                    > {page}
 
-                                </Button>
+                                    </Button></Link>
                             ))}
                         </Box>
 
