@@ -5,8 +5,12 @@ import './Home.css'
 const Home = () => {
     return (
         <>
-            <Container className='home-container' maxWidth="xl">
+            <Container className='content-container' maxWidth="xl">
                 <h1>This is home</h1>
+                <h1>This is home2</h1>
+                <h1>This is home3</h1>
+                <h1>This is home4</h1>
+                <h1>This is home5</h1>
             </Container>
         </>
     );

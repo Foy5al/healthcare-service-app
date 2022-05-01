@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Chip, Container, Divider, Grid, IconButton, styled, Typography } from '@mui/material';
+import { Box, Chip, Container, Divider, Grid, styled, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 import EmailIcon from '@mui/icons-material/Email';
@@ -18,7 +18,7 @@ const Root = styled('div')(({ theme }) => ({
 const Footer = () => {
     return (
         <footer>
-            <Box sx={{ bgcolor: 'secondary.main', color: 'text.secondary', pb: 2 }}>
+            <Box className='sticky-container' sx={{ bgcolor: 'secondary.main', color: 'text.secondary', pb: 2, top: 'auto' }}>
                 <Container maxWidth="xl">
                     <Grid container
                         spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>

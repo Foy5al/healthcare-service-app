@@ -6,7 +6,7 @@ import HealingTwoToneIcon from '@mui/icons-material/HealingTwoTone';
 import './NavBar.css'
 
 
-const pages = ['home', 'Pricing', 'about'];
+const pages = ['home', 'doctors', 'Appointment', 'about', 'Login'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Navbar = () => {
@@ -29,8 +29,8 @@ const Navbar = () => {
         setAnchorElUser(null);
     };
     return (
-        <div>
-            <AppBar color='primary' position="sticky" >
+        <Box sx={{ mt: 10 }} >
+            <AppBar position="fixed" color="primary" sx={{ top: 0, bottom: 'auto' }} >
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         <Typography
@@ -87,7 +87,8 @@ const Navbar = () => {
                             component="div"
                             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                         >
-                            Health Haven Hospital
+                            <HealingTwoToneIcon
+                                fontSize='large' />  Health Haven Hospital
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                             {pages.map((page) => (
@@ -137,7 +138,7 @@ const Navbar = () => {
                 </Container>
             </AppBar>
 
-        </div>
+        </Box>
     );
 };
 

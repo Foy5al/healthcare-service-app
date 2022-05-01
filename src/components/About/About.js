@@ -3,7 +3,7 @@ import React from 'react';
 
 const About = () => {
     return (
-        <div className='home-container'>
+        <div className='content-container'>
             <Container maxWidth="xl">
                 <h1>This is about</h1>
             </Container>
