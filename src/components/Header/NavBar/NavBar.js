@@ -2,6 +2,7 @@ import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Too
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
+import HealingTwoToneIcon from '@mui/icons-material/HealingTwoTone';
 import './NavBar.css'
 
 
@@ -29,23 +30,7 @@ const Navbar = () => {
     };
     return (
         <div>
-            {/* <nav>
-                <NavLink to='/about'>About</NavLink>
-                <NavLink to='/home'>Home</NavLink>
-            </nav> */}
-
-            {/* //     <Link to='/about'>about</Link>
-        //     <NavLink
-        //         to="/login"
-        //         className={isActive =>
-        //             "nav-link" + (!isActive ? " unselected" : "")
-        //         }
-        //     >
-        //         login1
-        //     </NavLink>
-        //     <NavLink to='/home'>home</NavLink>
-        //     <NavLink to='/login'>login</NavLink> */}
-            <AppBar color='primary' position="static">
+            <AppBar color='primary' position="sticky" >
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         <Typography
@@ -53,7 +38,9 @@ const Navbar = () => {
                             noWrap
                             component="div"
                             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-                        >
+                        > <HealingTwoToneIcon
+                                fontSize='large'
+                            />
                             Health Haven Hospital
                         </Typography>
 

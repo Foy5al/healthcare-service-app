@@ -1,14 +1,15 @@
 import { Container } from '@mui/material';
 import React from 'react';
 
-const About = () => {
+const Notfound = () => {
     return (
-        <div className='home-container'>
+        <>
             <Container maxWidth="xl">
-                <h1>This is about</h1>
+                <h1>404 Page is not found Please check the url</h1>
             </Container>
-        </div>
+
+        </>
     );
 };
 
-export default About;
+export default Notfound;
