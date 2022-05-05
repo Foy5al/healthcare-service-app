@@ -10,7 +10,7 @@ const Home = () => {
                 <h1>This is home2</h1>
                 <h1>This is home3</h1>
                 <h1>This is home4</h1>
-                <h1>This is home5</h1>
+                <h1>This is home6</h1>
             </Container>
         </>
     );
