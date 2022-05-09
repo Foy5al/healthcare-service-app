@@ -13,6 +13,11 @@ import Footer from './components/Header/Footer/Footer';
 import Login from './components/Login/Login/Login';
 import Register from './components/Login/Login/Register/Register';
 import Authprovider from './Context/Authprovider';
+import Services from './components/Services/Services';
+import Doctors from './components/Services/Doctors/Doctors';
+import Appointment from './components/Services/Appointment/Appointment';
+import ServiceDetails from './components/Services/ServiceDetails/ServiceDetails';
+
 
 export const myTheme = createTheme({
   palette: {
@@ -53,6 +58,9 @@ function App() {
               <Route path='/home'>
                 <Home></Home>
               </Route>
+              <Route path='/doctors'>
+                <Doctors></Doctors>
+              </Route>
               <Route path='/login'>
                 <Login></Login>
               </Route>
@@ -64,6 +72,15 @@ function App() {
               </Route>
               <Route path='/profile'>
                 <Login></Login>
+              </Route>
+              <Route path='/appointment'>
+                <Appointment></Appointment>
+              </Route>
+              <Route exact path='/services'>
+                <Services></Services>
+              </Route>
+              <Route exact path='/services/details/:servId'>
+                <ServiceDetails></ServiceDetails>
               </Route>
               <Route path='*'>
                 <Notfound></Notfound>

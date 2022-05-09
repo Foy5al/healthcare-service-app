@@ -1,18 +1,19 @@
 import { Container } from '@mui/material';
 import React from 'react';
+import About from '../About/About';
+import Banner from './Banner/Banner';
 import './Home.css'
+import Whyus from './Whyus/Whyus';
 
 const Home = () => {
     return (
-        <>
+        <div id='home'>
+            <Banner></Banner>
+            <Whyus></Whyus>
             <Container className='content-container' maxWidth="xl">
-                <h1>This is home</h1>
-                <h1>This is home2</h1>
-                <h1>This is home3</h1>
-                <h1>This is home4</h1>
-                <h1>This is home6</h1>
+                <About></About>
             </Container>
-        </>
+        </div>
     );
 };
 

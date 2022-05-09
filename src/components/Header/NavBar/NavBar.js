@@ -8,7 +8,7 @@ import useAuth from '../../../Hooks/useAuth';
 import { useHistory } from "react-router-dom";
 
 
-const pages = ['home', 'doctors', 'Appointment', 'about', 'login'];
+const pages = ['home', 'services', 'doctors', 'Appointment', 'about', 'login'];
 const settings = ['Profile', 'Logout'];
 
 const Navbar = () => {
@@ -46,7 +46,7 @@ const Navbar = () => {
         }
     };
     return (
-        <Box sx={{ mt: 10 }} >
+        <Box sx={{ mt: 8 }} >
             <AppBar position="fixed" color="primary" sx={{ top: 0, bottom: 'auto' }} >
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
