@@ -3,25 +3,16 @@ import React from 'react';
 import Carousel from 'react-material-ui-carousel';
 import './Banner.css'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import swal from 'sweetalert';
+import { HashLink } from 'react-router-hash-link';
 
 const Banner = () => {
-    const swalAlert = () => {
-        console.log('swal is clicked');
-        return swal({
-            title: "Your Appointment is Done",
-            text: "You will get a Confirmation mail soon!",
-            icon: "success",
-            button: "Go back to the website!"
-        });
-    }
 
     function Item(props) {
         return (
             <Paper>
                 <div className='banner-container'>
                     <img src={props.item.img} alt="" />
-                    <div className='banner-text'>
+                    <div className='banner-text tracking-in-expand'>
                         <Typography component="h4" variant="h5">
                             {props.item.name}
                         </Typography>
@@ -29,12 +20,12 @@ const Banner = () => {
                             {props.item.description}
                         </Typography>
 
-                        <Button sx={{ mt: 2 }} variant="contained" className="CheckButton"
-                            onClick={swalAlert}
-                        >
-                            Make an Appointment
-                            <AddCircleIcon />
-                        </Button>
+                        <HashLink smooth to="/doctors" className='text-style'>
+                            <Button sx={{ mt: 2 }} variant="contained" className="CheckButton">
+                                Make an Appointment
+                                <AddCircleIcon />
+                            </Button>
+                        </HashLink>
                     </div>
                 </div>
 

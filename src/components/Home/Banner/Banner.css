@@ -3,12 +3,13 @@
     text-align: center;
     color: white;
     min-height: 80vh;
+    max-height: 80vh;
 
 }
 
 .banner-container img {
     width: 100%;
-    min-height: 70vh;
+    min-height: 80vh;
     max-height: 80vh;
 }
 
@@ -39,4 +40,39 @@
     background-color: #fce4ec !important;
     font-size: 15px;
     border: 1px solid #e91e63;
+}
+
+.tracking-in-expand {
+    -webkit-animation: tracking-in-expand 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: tracking-in-expand 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+@-webkit-keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

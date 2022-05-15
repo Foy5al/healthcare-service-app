@@ -45,7 +45,7 @@ const Whyus = () => {
                                 <Grid key={service.id} className={service.class} item xs={12} md={6} lg={4}>
 
                                     <Card sx={{
-                                        maxWidth: 345, transition: '0.5s all ease-in-out', ':hover': {
+                                        maxWidth: 345, transition: '0.5s all ease-in-out', mb: 2, ':hover': {
                                             boxShadow: 10,
                                             color: '#e91e63'
                                         }

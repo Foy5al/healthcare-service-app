@@ -5,6 +5,7 @@ import useData from '../../Hooks/useData';
 import { HashLink } from 'react-router-hash-link';
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import { useHistory } from 'react-router-dom';
+import LoadingScreen from '../LoadingScreen/LoadingScreen';
 
 const Services = () => {
     // const [ourServices, setOurServices] = useState([])
@@ -16,8 +17,12 @@ const Services = () => {
     }
 
     return (
-        <div id='services' className='content-container'>
-            <Box sx={{ bgcolor: '#fce4ec', color: 'primary.main', p: 2, mb: 2, mt: 6, textAlign: "center" }}>
+        <Box id='services' sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            minHeight: '100vh', bgcolor: '#fce4ec', color: 'primary.main', p: 2, mb: 2, mt: 6, textAlign: "center"
+        }}>
+            {services[0].length > 1 ?
                 <Container maxWidth="xl">
                     <Typography sx={{ mt: 2, mb: 2, fontWeight: 600 }}
                         variant='h6'
@@ -81,9 +86,9 @@ const Services = () => {
                         Back to Home
                     </Button></HashLink>
 
-                </Container>
-            </Box>
-        </div>
+                </Container> : <LoadingScreen></LoadingScreen>
+            }
+        </Box>
     );
 };
 

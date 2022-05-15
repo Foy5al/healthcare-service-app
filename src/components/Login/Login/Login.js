@@ -7,9 +7,11 @@ import UserProfile from './UserProfile/UserProfile';
 import LoginIcon from '@mui/icons-material/Login';
 import { Link } from 'react-router-dom';
 import { Fingerprint } from '@mui/icons-material';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const Login = () => {
-    const { singInUsingGoogle, user } = useAuth();
+    const { singInUsingGoogle, user, singInUsingFacebook, singInUsingGithub, loginRegisterUser, handleRegister, handleEmail, handlePass, error, toggleLogin } = useAuth();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -21,8 +23,12 @@ const Login = () => {
     };
 
     return (
-        <div className='content-container'>
-            <Container maxWidth="xl">
+        <Box sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            minHeight: '100vh',
+        }} >
+            <Container id='login' maxWidth="xl">
                 {
                     user?.email ? <>
                         <UserProfile />
@@ -30,26 +36,28 @@ const Login = () => {
                         {/* if user is logout */}
                         <Container component="main" maxWidth="xs">
                             <CssBaseline />
+
                             <Box
                                 sx={{
-                                    marginTop: 8,
+                                    marginTop: 15,
                                     marginBottom: 8,
                                     display: 'flex',
                                     flexDirection: 'column',
-                                    alignItems: 'center',
+                                    alignItems: 'center'
                                 }}
                             >
                                 <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
                                     <LoginIcon />
                                 </Avatar>
                                 <Typography component="h1" variant="h5">
-                                    Sign up
+                                    Sign In
                                 </Typography>
-                                <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+                                <Box component="div" noValidate sx={{ mt: 3 }}>
                                     <Grid container spacing={2}>
 
                                         <Grid item xs={12}>
                                             <TextField
+                                                onBlur={handleEmail}
                                                 required
                                                 fullWidth
                                                 id="email"
@@ -60,6 +68,7 @@ const Login = () => {
                                         </Grid>
                                         <Grid item xs={12}>
                                             <TextField
+                                                onBlur={handlePass}
                                                 required
                                                 fullWidth
                                                 name="password"
@@ -68,40 +77,64 @@ const Login = () => {
                                                 id="password"
                                                 autoComplete="new-password"
                                             />
+                                            <Typography sx={{ p: 1 }}
+                                                color="red">
+                                                {error}
+                                            </Typography>
                                         </Grid>
 
                                     </Grid>
                                     <Button
-                                        type="submit"
+                                        onClick={handleRegister}
                                         fullWidth
                                         variant="contained"
                                         sx={{ mt: 3, mb: 2 }}
                                     >
                                         <Fingerprint /> Login
                                     </Button>
-                                    <Grid container justifyContent="flex-end">
-                                        <Grid item>
-                                            <Link className='body-link-text-style' to="/register" variant="body2">
+
+                                </Box>
+                                <Grid container justifyContent="flex-end">
+                                    <Grid item>
+                                        <Button onClick={toggleLogin(true)}>
+                                            <Link
+                                                className='body-link-text-style' to="/register" variant="body2">
                                                 New here? Register
                                             </Link>
-                                        </Grid>
+                                        </Button>
                                     </Grid>
-                                    {/* google btn */}
-                                    <Grid container sx={{ mt: 2, mb: 3 }} justifyContent="flex-end">
-                                        <Grid item>
-                                            <GoogleButton className='google-btn'
-                                                type="dark" // can be light or dark
-                                                onClick={singInUsingGoogle}
-                                            />
-                                        </Grid>
+                                </Grid>
+                                {/* google btn */}
+                                <Grid container sx={{ mt: 2, mb: 3 }} justifyContent="flex-end">
+                                    <Grid item>
+                                        <GoogleButton className='google-btn'
+                                            type="dark" // can be light or dark
+                                            onClick={singInUsingGoogle}
+                                        />
                                     </Grid>
-                                </Box>
+                                </Grid>
+
+                                <Grid container sx={{ mb: 3 }} justifyContent="flex-end">
+                                    {/* Facebook btn */}
+                                    <Grid item>
+                                        <Button onClick={singInUsingFacebook} variant="contained"
+                                            sx={{ p: 1, bgcolor: '#4267B2' }}>
+                                            <FacebookIcon />Facebook</Button>
+                                    </Grid>
+                                    <Typography textAlign="center" sx={{ p: 2 }}>Or</Typography>
+                                    {/* GitHUB btn */}
+                                    <Grid item>
+                                        <Button onClick={singInUsingGithub} variant="contained"
+                                            sx={{ p: 1, mb: 2, bgcolor: '#171515' }}>
+                                            <GitHubIcon /> GitHub</Button>
+                                    </Grid>
+                                </Grid>
                             </Box>
                         </Container>
                     </>
                 }
             </Container>
-        </div>
+        </Box>
     );
 };
 

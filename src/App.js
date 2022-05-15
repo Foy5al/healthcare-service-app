@@ -18,7 +18,7 @@ import Doctors from './components/Services/Doctors/Doctors';
 import Appointment from './components/Services/Appointment/Appointment';
 import ServiceDetails from './components/Services/ServiceDetails/ServiceDetails';
 
-
+// custom style for this application
 export const myTheme = createTheme({
   palette: {
     primary: {

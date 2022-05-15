@@ -16,8 +16,8 @@
     }
 
     100% {
-        -webkit-transform: translateY(-50px);
-        transform: translateY(-50px);
+        -webkit-transform: translateY(-40px);
+        transform: translateY(-40px);
     }
 }
 
@@ -28,15 +28,15 @@
     }
 
     100% {
-        -webkit-transform: translateY(-50px);
-        transform: translateY(-50px);
+        -webkit-transform: translateY(-40px);
+        transform: translateY(-40px);
     }
 }
 
 @-webkit-keyframes slide_bottom {
     0% {
-        -webkit-transform: translateY(-50px);
-        transform: translateY(-50px);
+        -webkit-transform: translateY(-40px);
+        transform: translateY(-40px);
     }
 
     100% {

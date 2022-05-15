@@ -3,6 +3,7 @@ import React from 'react';
 import About from '../About/About';
 import Banner from './Banner/Banner';
 import './Home.css'
+import OurExperts from './OurExperts/OurExperts';
 import Whyus from './Whyus/Whyus';
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
             <Container className='content-container' maxWidth="xl">
                 <About></About>
             </Container>
+            <OurExperts></OurExperts>
         </div>
     );
 };

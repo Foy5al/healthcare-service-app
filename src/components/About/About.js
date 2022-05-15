@@ -1,9 +1,13 @@
-import { Container, Typography } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import React from 'react';
 
 const About = () => {
     return (
-        <div className='content-container'>
+        <Box sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            minHeight: '100vh',
+        }} >
             <Container maxWidth="xl">
                 <Typography sx={{ mx: 2, p: 2, textAlign: "center" }}
                     variant='h3'>
@@ -23,10 +27,11 @@ const About = () => {
                     Be sure to leave a review on <strong>Health Haven</strong> of any hospital you’ve visited, whether you’ve had a negative or a positive experience. Share your suggestions about writing hospital reviews in the comments below or message us on facebook <a href="https://www.facebook.com/iamfoysal.h" target="_blank" rel="noopener noreferrer" >
                         @Foysal
                     </a>.
+                    <br /><br /><br />
                 </Typography>
 
             </Container>
-        </div>
+        </Box>
     );
 };
 

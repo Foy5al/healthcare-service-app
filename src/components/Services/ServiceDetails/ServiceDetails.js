@@ -1,7 +1,6 @@
 import React from 'react';
 import { Avatar, Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { useParams } from 'react-router-dom';
 import useData from '../../../Hooks/useData';
@@ -9,17 +8,14 @@ import HomeIcon from '@mui/icons-material/Home';
 
 const ServiceDetails = () => {
     const { servId } = useParams();
-    console.log(servId);
     const [service, setServices] = useState([])
     const mainData = useData();
     let services = mainData[0];
-    console.log(services);
 
     // handle undifined problem in mapping data
     useEffect(() => {
         if (services.length > 1) {
             const servDetails = services?.find(service => service.id === parseInt(servId));
-            console.log(servDetails);
             setServices(servDetails);
         }
         else {
@@ -53,7 +49,7 @@ const ServiceDetails = () => {
                                     }
                                     , 'img': { transition: '0.5s all ease-in-out' },
                                     ':hover img': {
-                                        transform: 'scale(1.1)'
+                                        transform: 'scale(1.05)'
                                     }
                                 }}>
                                     <CardActionArea>
@@ -64,22 +60,23 @@ const ServiceDetails = () => {
                                             image={service?.service_img}
                                             alt="card image of service"
                                         />
-                                        <CardContent sx={{ display: 'flex', justifyContent: 'center', mx: 'auto', my: 2 }}>
+                                        <CardContent sx={{ display: 'flex' }}>
                                             <Avatar
+                                                width='50px'
                                                 alt="service icon"
                                                 src={service?.icon}
                                                 sx={{
-                                                    width: 40, height: 40, mx: 'auto'
+                                                    width: 40, height: 40
                                                 }}
                                             />
-                                            <Typography gutterBottom variant="h5" component="div">
+                                            <Typography variant="h5" component="div">
                                                 Consult for {service.treatment}
                                             </Typography>
                                         </CardContent>
                                     </CardActionArea>
                                     <CardActions>
 
-                                        <Typography align="justify" gutterBottom variant="p" component="div">
+                                        <Typography sx={{ p: 2 }} align="justify" gutterBottom variant="p" component="div">
                                             {service.description}
                                         </Typography>
                                     </CardActions>

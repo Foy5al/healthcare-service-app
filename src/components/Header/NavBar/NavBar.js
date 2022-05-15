@@ -6,9 +6,10 @@ import HealingTwoToneIcon from '@mui/icons-material/HealingTwoTone';
 import './NavBar.css'
 import useAuth from '../../../Hooks/useAuth';
 import { useHistory } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 
 
-const pages = ['home', 'services', 'doctors', 'Appointment', 'about', 'login'];
+// const pages = ['home', 'services', 'doctors', 'Appointment', 'about', 'login'];
 const settings = ['Profile', 'Logout'];
 
 const Navbar = () => {
@@ -21,14 +22,15 @@ const Navbar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+    //open naviagation for small device
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
     };
-
-    const handleCloseNavMenu = () => {
+    // this is for close nav menu
+    const handleCloseNavMenu = (event) => {
         setAnchorElNav(null);
     };
 
@@ -92,15 +94,52 @@ const Navbar = () => {
                                 }}
                             >
                                 {/*-------- small skin navigation-------- */}
-                                {pages.map((page) => (
-                                    <MenuItem key={page}
+                                <MenuItem
+                                    bgcolor="primary"
+                                    component={HashLink}
+                                    smooth to='/home#home'
+                                >home
+                                </MenuItem>
+
+                                <MenuItem
+                                    bgcolor="primary"
+                                    component={HashLink}
+                                    smooth to='/services#services'
+                                >Services
+                                </MenuItem>
+
+                                <MenuItem
+                                    bgcolor="primary"
+
+                                    component={HashLink}
+                                    smooth to='/doctors#doctors'
+                                >Doctors
+                                </MenuItem>
+                                <MenuItem
+                                    bgcolor="primary"
+
+                                    component={HashLink}
+                                    smooth to='/appointment#appointment'
+                                >Appointment
+                                </MenuItem>
+
+                                <MenuItem
+                                    bgcolor="primary"
+
+                                    component={HashLink}
+                                    smooth to='/about#about'
+                                >About
+                                </MenuItem>
+                                {!user?.email &&
+                                    <MenuItem
                                         bgcolor="primary"
-                                        onClick={handleCloseNavMenu}
-                                        component={Link}
-                                        to={page}
-                                    >{page}
+
+                                        component={HashLink}
+                                        smooth to='/login#login'
+                                    >Login
                                     </MenuItem>
-                                ))}
+                                }
+
                             </Menu>
                         </Box>
 
@@ -117,18 +156,62 @@ const Navbar = () => {
 
                             {/*-------- large skin navigation-------- */}
 
-                            {pages.map((page) => (
-                                <Link
-                                    key={page}
-                                    className="text-style text-style-fullscrn "
-                                    to={page}>
-                                    <Button
-                                        onClick={handleCloseNavMenu}
-                                        sx={{ my: 2, color: 'white', display: 'block' }}
-                                    > {page}
+                            <HashLink
+                                className="text-style text-style-fullscrn "
+                                smooth to='/home#home'>
+                                <Button
 
-                                    </Button></Link>
-                            ))}
+                                    sx={{ my: 2, color: 'white', display: 'block' }}
+                                >Home
+                                </Button></HashLink>
+
+                            <HashLink
+                                className="text-style text-style-fullscrn "
+                                smooth to='/services#services'>
+                                <Button
+
+                                    sx={{ my: 2, color: 'white', display: 'block' }}
+                                >Services
+                                </Button></HashLink>
+
+                            <HashLink
+                                className="text-style text-style-fullscrn "
+                                smooth to='/doctors#doctors'>
+                                <Button
+
+                                    sx={{ my: 2, color: 'white', display: 'block' }}
+                                >Doctors
+                                </Button></HashLink>
+
+                            <HashLink
+                                className="text-style text-style-fullscrn "
+                                smooth to='/appointment#appointment'>
+                                <Button
+
+                                    sx={{ my: 2, color: 'white', display: 'block' }}
+                                >Appointment
+                                </Button></HashLink>
+
+                            <HashLink
+                                className="text-style text-style-fullscrn "
+                                smooth to='/about#about'>
+                                <Button
+
+                                    sx={{ my: 2, color: 'white', display: 'block' }}
+                                >About
+                                </Button></HashLink>
+                            {!user?.email &&
+                                <HashLink
+                                    className="text-style text-style-fullscrn "
+                                    smooth to='/login#login'>
+                                    <Button
+
+                                        sx={{ my: 2, color: 'white', display: 'block' }}
+                                    >Login
+                                    </Button></HashLink>
+                            }
+
+
                         </Box>
 
                         {/* user info and navigation btn */}

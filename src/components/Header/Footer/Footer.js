@@ -1,6 +1,5 @@
 import React from 'react';
 import { Avatar, Box, Chip, Container, Divider, Grid, Stack, styled, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EmailIcon from '@mui/icons-material/Email';
 import HealingTwoToneIcon from '@mui/icons-material/HealingTwoTone';
@@ -10,6 +9,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import './Footer.css';
 import { pink } from '@mui/material/colors';
+import { HashLink } from 'react-router-hash-link';
 
 
 const Root = styled('div')(({ theme }) => ({
@@ -102,15 +102,13 @@ const Footer = () => {
                                 </Divider>
                             </Root>
 
-                            <Box sx={{ mb: 2 }}><Link className='text-style' to='/home' color='inherit'>Orthopedic Care</Link></Box>
+                            <Box sx={{ mb: 2 }}><HashLink className='text-style' to='/doctors#doctors' color='inherit'>Find a Doctor</HashLink></Box>
 
-                            <Box sx={{ mb: 2 }}><Link className='text-style' to='/' color='inherit'>Gynecology Care</Link></Box>
+                            <Box sx={{ mb: 2 }}><HashLink className='text-style' to='/services#services' color='inherit'>All services</HashLink></Box>
 
-                            <Box sx={{ mb: 2 }}><Link className='text-style' to='/' color='inherit'>Cardiology Care</Link></Box>
+                            <Box sx={{ mb: 2 }}><HashLink className='text-style' to='/appointment#appointment' color='inherit'>Make An Appointment</HashLink></Box>
 
-                            <Box sx={{ mb: 2 }}><Link className='text-style' to='/' color='inherit'>Dentistry Care</Link></Box>
-
-                            <Box sx={{ mb: 2 }}><Link className='text-style' to='/' color='inherit'>Gastroenterology</Link></Box>
+                            <Box sx={{ mb: 2 }}><HashLink className='text-style' to='/register' color='inherit'>Register For Service </HashLink></Box>
                         </Grid>
 
                         {/* ----------social media part ------------*/}
