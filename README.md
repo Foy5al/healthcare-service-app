@@ -11,9 +11,6 @@ In this site we have these features and services
 7. Appointment page
 8. Responsive Footer
 
-Service demo images
-<img src="./src/demo_imgs/Home_page.png" alt="Getting started" />
-
 The Package uses in this project:
 1. Material Ui
 2. React Router
@@ -25,6 +22,23 @@ The Package uses in this project:
 8. date-fns
 9. React swal alert
 10. React Google Button
+
+
+Service demo images►
+Home page
+<img src="./src/demo_imgs/Home_page.png" alt="Home page" />
+services page
+<img src="./src/demo_imgs/service_page.png" alt="services page" />
+doctors page
+<img src="./src/demo_imgs/doctors_page.png" alt="doctors page" />
+appointment page
+<img src="./src/demo_imgs/appointment_page.png" alt="appointment page" />
+about page
+<img src="./src/demo_imgs/about_page.png" alt="about page" />
+user profile
+<img src="./src/demo_imgs/user_profile.png" alt="user profile" />
+mobile view
+<img src="./src/demo_imgs/home_mobile_view.png" alt="mobile view" />
 
 -----------------Additional info-----------------
 # Getting Started with Create React App
