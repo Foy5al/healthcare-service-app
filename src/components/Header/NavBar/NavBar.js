@@ -8,7 +8,6 @@ import useAuth from '../../../Hooks/useAuth';
 import { useHistory } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
 
-
 // const pages = ['home', 'services', 'doctors', 'Appointment', 'about', 'login'];
 const settings = ['Profile', 'Logout'];
 
@@ -110,14 +109,12 @@ const Navbar = () => {
 
                                 <MenuItem
                                     bgcolor="primary"
-
                                     component={HashLink}
                                     smooth to='/doctors#doctors'
                                 >Doctors
                                 </MenuItem>
                                 <MenuItem
                                     bgcolor="primary"
-
                                     component={HashLink}
                                     smooth to='/appointment#appointment'
                                 >Appointment
@@ -125,7 +122,6 @@ const Navbar = () => {
 
                                 <MenuItem
                                     bgcolor="primary"
-
                                     component={HashLink}
                                     smooth to='/about#about'
                                 >About

@@ -4,9 +4,11 @@ import React from 'react';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import swal from 'sweetalert';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import useAuth from '../../../Hooks/useAuth';
 
 
 const Appointment = () => {
+    const { user } = useAuth();
 
     const [clearedDate, setClearedDate] = React.useState(null);
     const [value, setValue] = React.useState(new Date());
@@ -64,6 +66,8 @@ const Appointment = () => {
                         <MenuItem value={19}>Michael I. Johnson</MenuItem>
                     </Select>
                 </FormControl>
+                <TextField sx={{ mb: 2 }} value={user.displayName} fullWidth label="Your Name" id="fullWidth" />
+                <TextField sx={{ mb: 2 }} value={user.email} fullWidth label="Your Mail" id="fullWidth" />
 
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                     <Stack spacing={3}>
@@ -81,6 +85,8 @@ const Appointment = () => {
                         />
                     </Stack>
                 </LocalizationProvider>
+
+                <TextField sx={{ mt: 2, mb: 2 }} fullWidth label="Problem type" id="fullWidth" />
 
                 <Button sx={{ p: 1, mt: 2, mb: 5 }} onClick={swalAlert} fullWidth
                     variant="contained"><AddCircleIcon /> Confirm</Button>

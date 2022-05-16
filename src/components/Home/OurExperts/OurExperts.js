@@ -1,4 +1,4 @@
-import { Avatar, Card, CardActionArea, CardContent, Container, Grid, Typography } from '@mui/material';
+import { Avatar, Card, CardActionArea, CardContent, Container, Grid, LinearProgress, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { HashLink } from 'react-router-hash-link';
@@ -16,7 +16,7 @@ const OurExperts = () => {
             setOurExperts(serv);
         }
         else {
-            console.log('waitting for data');
+            <LinearProgress color="secondary" />
         }
     }, [experts]);
 

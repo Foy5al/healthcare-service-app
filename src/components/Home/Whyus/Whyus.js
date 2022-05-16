@@ -1,4 +1,4 @@
-import { Avatar, Box, Card, CardActionArea, CardActions, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
+import { Avatar, Box, Card, CardActionArea, CardActions, CardContent, CardMedia, Container, Grid, LinearProgress, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
@@ -18,7 +18,7 @@ const Whyus = () => {
             setOurServices(serv);
         }
         else {
-            console.log('waitting for data');
+            <LinearProgress color="secondary" />
         }
     }, [services]);
 

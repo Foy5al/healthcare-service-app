@@ -17,6 +17,7 @@ import Services from './components/Services/Services';
 import Doctors from './components/Services/Doctors/Doctors';
 import Appointment from './components/Services/Appointment/Appointment';
 import ServiceDetails from './components/Services/ServiceDetails/ServiceDetails';
+import PrivetRoute from './PrivetRoute/PrivetRoute';
 
 // custom style for this application
 export const myTheme = createTheme({
@@ -58,9 +59,9 @@ function App() {
               <Route path='/home'>
                 <Home></Home>
               </Route>
-              <Route path='/doctors'>
+              <PrivetRoute path='/doctors'>
                 <Doctors></Doctors>
-              </Route>
+              </PrivetRoute>
               <Route path='/login'>
                 <Login></Login>
               </Route>
@@ -73,15 +74,15 @@ function App() {
               <Route path='/profile'>
                 <Login></Login>
               </Route>
-              <Route path='/appointment'>
+              <PrivetRoute path='/appointment'>
                 <Appointment></Appointment>
-              </Route>
+              </PrivetRoute>
               <Route exact path='/services'>
                 <Services></Services>
               </Route>
-              <Route exact path='/services/details/:servId'>
+              <PrivetRoute exact path='/services/details/:servId'>
                 <ServiceDetails></ServiceDetails>
-              </Route>
+              </PrivetRoute>
               <Route path='*'>
                 <Notfound></Notfound>
               </Route>

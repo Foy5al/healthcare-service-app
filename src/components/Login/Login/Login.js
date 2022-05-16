@@ -9,18 +9,54 @@ import { Link } from 'react-router-dom';
 import { Fingerprint } from '@mui/icons-material';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import { useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
-    const { singInUsingGoogle, user, singInUsingFacebook, singInUsingGithub, loginRegisterUser, handleRegister, handleEmail, handlePass, error, toggleLogin } = useAuth();
+    const { singInUsingGoogle, user, setUser, singInUsingFacebook, singInUsingGithub, handleRegister, handleEmail, handlePass, error, setError, toggleLogin, } = useAuth();
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
-    };
+    //location is use for privet route
+    const location = useLocation();
+    const history = useHistory();
+    const redirect_url = location.state?.from || '/profile';
+
+    const handleGoogleSignIn = () => {
+        singInUsingGoogle()
+            .then((result) => {
+                const loggedInUser = result.user;
+                setUser(loggedInUser);
+                history.push(redirect_url);
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                setError(errorMessage);
+            });
+    }
+
+    const handleFacebooksignIn = () => {
+        singInUsingFacebook()
+            .then((result) => {
+                console.log(result.user);
+                const loggedInUser = result.user;
+                setUser(loggedInUser);
+                history.push(redirect_url);
+            }).catch((error) => {
+                const errorMessage = error.message;
+                setError(errorMessage);
+            });
+    }
+
+    const handleGithubSignIn = () => {
+        singInUsingGithub()
+            .then((result) => {
+                const loggedInUser = result.user;
+                setUser(loggedInUser);
+                history.push(redirect_url);
+            })
+            .catch(error => {
+                setError(error.message)
+            });
+    }
 
     return (
         <Box sx={{
@@ -109,7 +145,7 @@ const Login = () => {
                                     <Grid item>
                                         <GoogleButton className='google-btn'
                                             type="dark" // can be light or dark
-                                            onClick={singInUsingGoogle}
+                                            onClick={handleGoogleSignIn}
                                         />
                                     </Grid>
                                 </Grid>
@@ -117,14 +153,14 @@ const Login = () => {
                                 <Grid container sx={{ mb: 3 }} justifyContent="flex-end">
                                     {/* Facebook btn */}
                                     <Grid item>
-                                        <Button onClick={singInUsingFacebook} variant="contained"
+                                        <Button onClick={handleFacebooksignIn} variant="contained"
                                             sx={{ p: 1, bgcolor: '#4267B2' }}>
                                             <FacebookIcon />Facebook</Button>
                                     </Grid>
                                     <Typography textAlign="center" sx={{ p: 2 }}>Or</Typography>
                                     {/* GitHUB btn */}
                                     <Grid item>
-                                        <Button onClick={singInUsingGithub} variant="contained"
+                                        <Button onClick={handleGithubSignIn} variant="contained"
                                             sx={{ p: 1, mb: 2, bgcolor: '#171515' }}>
                                             <GitHubIcon /> GitHub</Button>
                                     </Grid>

@@ -9,6 +9,7 @@ const googleProvider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
+
 const useFirebase = () => {
     const [userName, setUserName] = useState('');
     const [user, setUser] = useState({});
@@ -19,42 +20,15 @@ const useFirebase = () => {
     const auth = getAuth();
 
     const singInUsingGoogle = () => {
-        signInWithPopup(auth, googleProvider)
-            .then((result) => {
-
-                const loggedInUser = result.user;
-                setUser(loggedInUser);
-
-                // ...
-            }).catch((error) => {
-                const errorMessage = error.message;
-                setError(errorMessage);
-            });
+        return signInWithPopup(auth, googleProvider)
     }
 
     const singInUsingFacebook = () => {
-        signInWithPopup(auth, facebookProvider)
-            .then((result) => {
-                console.log(result.user);
-                const loggedInUser = result.user;
-                setUser(loggedInUser);
-            }).catch((error) => {
-                const errorMessage = error.message;
-                setError(errorMessage);
-            });
+        return signInWithPopup(auth, facebookProvider)
     }
 
     const singInUsingGithub = () => {
-        signInWithPopup(auth, githubProvider)
-            .then((result) => {
-                const loggedInUser = result.user;
-                setUser(loggedInUser);
-            })
-
-            .catch(error => {
-                setError(error.message)
-            })
-
+        return signInWithPopup(auth, githubProvider)
     }
 
     useEffect(() => {
@@ -178,6 +152,7 @@ const useFirebase = () => {
         singInUsingFacebook,
         singInUsingGithub,
         user,
+        setUser,
         isLogin,
         logout,
         handleRegister,
@@ -186,6 +161,7 @@ const useFirebase = () => {
         handleEmail,
         handlePass,
         error,
+        setError,
         loginRegisterUser,
         handleConfirmPass,
         toggleLogin

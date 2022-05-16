@@ -5,6 +5,7 @@ import { HashLink } from 'react-router-hash-link';
 import { useParams } from 'react-router-dom';
 import useData from '../../../Hooks/useData';
 import HomeIcon from '@mui/icons-material/Home';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const ServiceDetails = () => {
     const { servId } = useParams();
@@ -63,6 +64,7 @@ const ServiceDetails = () => {
                                         <CardContent sx={{ display: 'flex' }}>
                                             <Avatar
                                                 width='50px'
+                                                hight='50px'
                                                 alt="service icon"
                                                 src={service?.icon}
                                                 sx={{
@@ -83,11 +85,13 @@ const ServiceDetails = () => {
                                     <Typography gutterBottom variant="h6" component="div">
                                         Consult fee {service.price}
                                     </Typography>
+                                    <HashLink smooth to="/appointment" className='text-style'>
+                                        <Button sx={{ mt: 2, mb: 2 }} variant="contained" className="CheckButton">
+                                            Make an Appointment
+                                            <AddCircleIcon />
+                                        </Button>
+                                    </HashLink>
                                 </Card>
-
-
-
-
                             </Grid>
                         }
                     </Grid>}

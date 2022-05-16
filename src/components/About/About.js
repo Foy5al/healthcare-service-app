@@ -3,14 +3,15 @@ import React from 'react';
 
 const About = () => {
     return (
-        <Box sx={{
+        <Box id='about' sx={{
             display: 'flex',
             flexDirection: 'column',
-            minHeight: '100vh',
-        }} >
+            minHeight: '70vh'
+        }}
+            points="0,100 50,00, 100,100" >
             <Container maxWidth="xl">
-                <Typography sx={{ mx: 2, p: 2, textAlign: "center" }}
-                    variant='h3'>
+                <Typography sx={{ color: 'primary.main', mx: 2, p: 2, textAlign: "center" }}
+                    variant='h4'>
                     All-in-One Website Health Solution
                 </Typography>
 
