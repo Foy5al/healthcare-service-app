@@ -13,7 +13,7 @@ import { useLocation } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
 const Login = () => {
-    const { singInUsingGoogle, user, setUser, singInUsingFacebook, singInUsingGithub, handleRegister, handleEmail, handlePass, error, setError, toggleLogin, } = useAuth();
+    const { singInUsingGoogle, handlePasswordReset, user, setUser, mail, singInUsingFacebook, singInUsingGithub, handleRegister, handleEmail, handlePass, error, setError, toggleLogin, setIsLoading } = useAuth();
 
     //location is use for privet route
     const location = useLocation();
@@ -30,7 +30,8 @@ const Login = () => {
             .catch((error) => {
                 const errorMessage = error.message;
                 setError(errorMessage);
-            });
+            })
+            .finally(() => setIsLoading(false));
     }
 
     const handleFacebooksignIn = () => {
@@ -43,7 +44,8 @@ const Login = () => {
             }).catch((error) => {
                 const errorMessage = error.message;
                 setError(errorMessage);
-            });
+            })
+            .finally(() => setIsLoading(false));
     }
 
     const handleGithubSignIn = () => {
@@ -55,7 +57,8 @@ const Login = () => {
             })
             .catch(error => {
                 setError(error.message)
-            });
+            })
+            .finally(() => setIsLoading(false));
     }
 
     return (
@@ -118,7 +121,11 @@ const Login = () => {
                                                 {error}
                                             </Typography>
                                         </Grid>
-
+                                        {mail ?
+                                            <Button className='body-link-text-style' variant="body2" onClick={handlePasswordReset}>
+                                                Forget Password? Reset now
+                                            </Button> : <></>
+                                        }
                                     </Grid>
                                     <Button
                                         onClick={handleRegister}

@@ -22,7 +22,6 @@ const Appointment = () => {
 
     //swal alert
     const swalAlert = () => {
-        console.log('swal is clicked');
         return swal("Your Appointment is Done You will Receive a mail ASAP.", {
             button: false,
             icon: "success"

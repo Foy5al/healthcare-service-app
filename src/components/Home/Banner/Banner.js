@@ -20,7 +20,7 @@ const Banner = () => {
                             {props.item.description}
                         </Typography>
 
-                        <HashLink smooth to="/doctors" className='text-style'>
+                        <HashLink smooth to="/appointment#appointment" className='text-style'>
                             <Button sx={{ mt: 2 }} variant="contained" className="CheckButton">
                                 Make an Appointment
                                 <AddCircleIcon />

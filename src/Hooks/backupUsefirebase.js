@@ -17,22 +17,21 @@ const useFirebase = () => {
     const [mail, setMail] = useState('');
     const [password, setPass] = useState('');
     const [error, setError] = useState('');
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const auth = getAuth();
 
     const singInUsingGoogle = () => {
-        setIsLoading(true);
-        console.log('this is from inside google', isLogin)
+        setIsLoading(false);
         return signInWithPopup(auth, googleProvider)
     }
 
     const singInUsingFacebook = () => {
-        // setisLogin(true);
+        setIsLoading(false);
         return signInWithPopup(auth, facebookProvider)
     }
 
     const singInUsingGithub = () => {
-        // setisLogin(true);
+        setIsLoading(false);
         return signInWithPopup(auth, githubProvider)
     }
 
@@ -43,21 +42,20 @@ const useFirebase = () => {
             } else {
                 setUser({})
             }
-            setIsLoading(false);
-            setisLogin(false);
+            setIsLoading(true);
 
         });
         return () => unsubscribed;
     }, [])
 
     const logout = () => {
-        setIsLoading(true);
+        setIsLoading(false);
         signOut(auth).then(() => {
 
         }).catch((error) => {
             setUser(error);
         })
-            .finally(() => setIsLoading(false));
+            .finally(() => setIsLoading(true));
     }
 
     const handleRegister = e => {
@@ -81,7 +79,7 @@ const useFirebase = () => {
             .then((result) => {
                 const user = result.user;
                 verifyUserMail();
-                updateUserName();
+                updateUserName(user);
                 setError('');
             })
             .catch((error) => {
@@ -159,6 +157,7 @@ const useFirebase = () => {
         user,
         setUser,
         isLogin,
+        setisLogin,
         logout,
         handleRegister,
         handlePasswordReset,
@@ -170,9 +169,7 @@ const useFirebase = () => {
         loginRegisterUser,
         handleConfirmPass,
         toggleLogin,
-        setIsLoading,
-        isLoading,
-        mail
+        isLoading
     }
 }
 

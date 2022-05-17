@@ -23,16 +23,6 @@ const Register = () => {
 
     const { user, singInUsingGoogle, singInUsingFacebook, singInUsingGithub, handleConfirmPass, handleRegister, handleUserName, handleEmail, handlePass, error, toggleLogin } = useAuth();
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-            confirempassword: data.get('password')
-        });
-    };
-    console.log(error);
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />

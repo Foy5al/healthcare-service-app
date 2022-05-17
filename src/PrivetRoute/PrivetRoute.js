@@ -1,31 +1,14 @@
-import { Box, Skeleton } from '@mui/material';
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { Route } from 'react-router-dom';
+import LoadingScreen from '../components/LoadingScreen/LoadingScreen';
 import useAuth from '../Hooks/useAuth';
 
 const PrivetRoute = ({ children, ...rest }) => {
-    let { user, isLogin } = useAuth();
+    const { user, isLoading } = useAuth();
     //this is used for solve reload to redirect login issue
-    if (isLogin) {
-        return <Box sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            minHeight: '70vh',
-            mx: 'auto',
-            mt: 10
-        }}>
-            <Box sx={{ width: '80%', mx: 'auto' }}>
-                <Skeleton />
-                <Skeleton variant="rectangular"
-                    width={'50%'}
-                    height={110} animation="wave" />
-                <Skeleton variant="rectangular"
-                    width={'100%'}
-                    height={110} animation="wave" />
-                <Skeleton animation="wave" />
-            </Box>
-        </Box>
+    if (isLoading) {
+        return (<LoadingScreen></LoadingScreen>);
     }
     return (
         <Route
@@ -47,3 +30,7 @@ const PrivetRoute = ({ children, ...rest }) => {
 };
 
 export default PrivetRoute;
+
+/* if (!isLoading) {
+    return (<LoadingScreen></LoadingScreen>);
+} */

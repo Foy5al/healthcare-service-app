@@ -102,13 +102,13 @@ const Footer = () => {
                                 </Divider>
                             </Root>
 
-                            <Box sx={{ mb: 2 }}><HashLink className='text-style' to='/doctors#doctors' color='inherit'>Find a Doctor</HashLink></Box>
+                            <Box sx={{ p: 2 }}><HashLink className='text-style' to='/doctors#doctors' color='inherit'>Find a Doctor</HashLink></Box>
 
-                            <Box sx={{ mb: 2 }}><HashLink className='text-style' to='/services#services' color='inherit'>All services</HashLink></Box>
+                            <Box sx={{ p: 2 }}><HashLink className='text-style' to='/services#services' color='inherit'>All services</HashLink></Box>
 
-                            <Box sx={{ mb: 2 }}><HashLink className='text-style' to='/appointment#appointment' color='inherit'>Make An Appointment</HashLink></Box>
+                            <Box sx={{ p: 2 }}><HashLink className='text-style' to='/appointment#appointment' color='inherit'>Make An Appointment</HashLink></Box>
 
-                            <Box sx={{ mb: 2 }}><HashLink className='text-style' to='/register' color='inherit'>Register For Service </HashLink></Box>
+                            <Box sx={{ p: 2 }}><HashLink className='text-style' to='/register' color='inherit'>Register For Service </HashLink></Box>
                         </Grid>
 
                         {/* ----------social media part ------------*/}
